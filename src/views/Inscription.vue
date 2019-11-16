@@ -1,5 +1,6 @@
 <template>
 <div class="Inscription">
+  <h1>lets not see this</h1>
    <v-card class="elevation-5 my-5" style="border-radius:20px;">
      <v-form>
         <v-card-title class="blue darken-3 elevation-5" style="color: white;font-family: sans-serif;border-radius:20px;">
