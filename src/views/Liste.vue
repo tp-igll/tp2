@@ -51,16 +51,16 @@
                     <v-text-field v-model="editedItem.Email" label="Email" :rules="emailRules"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Groupe" label="Groupe" :rules="groupeRules"></v-text-field>
+                    <v-text-field v-model="editedItem.Niveau" label="Niveau" :rules="NiveauRules"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Date_de_naissance" label="Date de naissance" :rules="groupeRules"></v-text-field>
+                    <v-text-field v-model="editedItem.Section" label="Section" :rules="NiveauRules"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Matricule" label="Matricule" :rules="groupeRules"></v-text-field>
+                    <v-text-field v-model="editedItem.Matricule" label="Matricule" :rules="NiveauRules"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Adresse" label="Adresse" :rules="groupeRules"></v-text-field>
+                    <v-text-field v-model="editedItem.Adresse" label="Adresse" :rules="NiveauRules"></v-text-field>
                   </v-col>
                 </v-row>
                 </v-form>
@@ -90,13 +90,13 @@
                     <v-text-field v-model="editedItem.Prénom" label="Prénom" :disabled="true"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Groupe" label="Groupe" :disabled="true"></v-text-field>
+                    <v-text-field v-model="editedItem.Niveau" label="Niveau" :disabled="true"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="editedItem.Email" label="Email" :disabled="true"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="editedItem.Date_de_naissance" label="Date de naissance" :disabled="true"></v-text-field>
+                    <v-text-field v-model="editedItem.Section" label="Section" :disabled="true"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="editedItem.Matricule" label="Matricule" :disabled="true"></v-text-field>
@@ -140,9 +140,10 @@
       </v-icon>
       
     </template>
-    <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize">Reset</v-btn>
-    </template>
+    <v-progress-circular
+      indeterminate
+      color="primary"
+    ></v-progress-circular>
   </v-data-table>
 </template>
 
@@ -164,22 +165,22 @@
         v => !!v || 'Le champ e-mail est obligatoire',
         v => /.+@.+/.test(v) || 'Veuillez introduire une adresse e-mail valide.',
       ],
-      groupeRules: [
+      NiveauRules: [
         v => !!v || 'Ce champ est obligatoire.',
       ],
       headers: [
         {
-          text: 'Nom',
+          text: 'Matricule',
           align: 'left',
           sortable: true,
-          value: 'Nom',
+          value: 'Matricule',
         },
+        { text: 'Nom', value: 'Nom' },
         { text: 'Prénom', value: 'Prénom' },
-        { text: 'Groupe', value: 'Groupe' },
+        { text: 'Niveau', value: 'Niveau' },
+        { text: 'Section', value: 'Section' },
+        { text: 'Groupe', value: 'Adresse' },
         { text: 'Email', value: 'Email' },
-        { text: 'Date de naissance', value: 'Date_de_naissance' },
-        { text: 'Adresse', value: 'Adresse' },
-        { text: 'Matricule', value: 'Matricule' },
         { text: 'Actions', value: 'action', sortable: false },
       ],
       Etudiants: [],
@@ -187,18 +188,18 @@
       editedItem: {
         Nom: '',
         Prénom: '',
-        Groupe:'',
+        Niveau:'',
         Email: '',
-        Date_de_naissance: '',
+        Section: '',
         Adresse: '',
         Matricule:'',
       },
       defaultItem: {
         Nom: '',
         Prénom: '',
-        Groupe:'',
+        Niveau:'',
         Email: '',
-        Date_de_naissance: '',
+        Section: '',
         Adresse: '',
         Matricule:'',
       },
@@ -226,81 +227,81 @@
           {
             Nom: 'Ghaouat',
             Prénom: 'Maroua',
-            Groupe:'5',
+            Niveau:'5',
             Email: 'mh_maroua@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: '7amizz',
             Matricule:'1311515633'
           },
           {
             Nom: 'Mouri',
             Prénom: 'Sid Ali Samy',
-            Groupe:'10',
+            Niveau:'10',
             Email: 'hd_mouri@esi.dz',
-            Date_de_naissance: '05/03/2000',
+            Section: '05/03/2000',
             Adresse: 'Reghaia',
             Matricule:'1311515633'
           },
           {
             Nom: 'Gouttel',
             Prénom: 'Zack',
-            Groupe:'7',
+            Niveau:'7',
             Email: 'hz_gouttel@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: 'Stefi',
             Matricule:'1311515633'
           },
           {
             Nom: 'Ghaouat',
             Prénom: 'Maroua',
-            Groupe:'11',
+            Niveau:'11',
             Email: 'mh_maroua@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: '7amizz',
             Matricule:'1311515633'
           },
           {
             Nom: 'Mouri',
             Prénom: 'Sid Ali Samy',
-            Groupe:'777',
+            Niveau:'777',
             Email: 'hd_mouri@esi.dz',
-            Date_de_naissance: '05/03/2000',
+            Section: '05/03/2000',
             Adresse: 'Reghaia',
             Matricule:'1311515633'
           },
           {
             Nom: 'Gouttel',
             Prénom: 'Zack',
-            Groupe:'8',
+            Niveau:'8',
             Email: 'hz_gouttel@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: 'Stefi',
             Matricule:'1311515633'
           },
           {
             Nom: 'Ghaouat',
             Prénom: 'Maroua',
-            Groupe:'1',
+            Niveau:'1',
             Email: 'mh_maroua@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: '7amizz',
             Matricule:'1311515633'
           },
           {
             Nom: 'Mouri',
             Prénom: 'Sid Ali Samy',
-            Groupe:'0',
+            Niveau:'0',
             Email: 'hd_mouri@esi.dz',
-            Date_de_naissance: '05/03/2000',
+            Section: '05/03/2000',
             Adresse: 'Reghaia',
             Matricule:'1311515633'
           },
           {
             Nom: 'Gouttel',
             Prénom: 'Zack',
-            Groupe:'5',
+            Niveau:'5',
             Email: 'hz_gouttel@esi.dz',
-            Date_de_naissance: '99/99/2019',
+            Section: '99/99/2019',
             Adresse: 'Stefi',
             Matricule:'1311515633'
           },

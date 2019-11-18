@@ -14,6 +14,9 @@
       </v-toolbar-title>
       
       <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon color="white" router to='/login'>mdi-logout</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -68,7 +71,7 @@ export default {
                 { icon: 'mdi-home', text: 'Acceuil', route:'/Acceuil'},
                 { icon: 'mdi-account-plus', text: 'Inscrire étudiant', route:'/Inscription'},
                 { icon: 'mdi-view-list', text: 'Liste des étudiants', route:'/Liste' },
-                { icon: 'mdi-alert-circle', text: 'Les autres', route:'/' },]
+                { icon: 'mdi-alert-circle', text: 'Les autres', route:'/login' },]
         }
     }
 }

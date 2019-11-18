@@ -93,8 +93,10 @@
                 prepend-icon="mdi-phone"
                 placeholder="Téléphone"
                 :error-messages="telephoneErrors"
-                :counter="12"
+                :counter="10"
                 required
+                
+                type="number"
                 @input="$v.telephone.$touch()"
                 @blur="$v.telephone.$touch()"
               ></v-text-field>
@@ -152,7 +154,7 @@
       telephoneErrors () {
         const errors = []
         if (!this.$v.telephone.$dirty) return errors
-        !this.$v.telephone.maxLength && errors.push('Le numéro de téléphone ne doit pas dépasser 12 caracteres.')
+        !this.$v.telephone.maxLength && errors.push('Le numéro de téléphone ne doit pas dépasser 10 chiffres.')
         !this.$v.telephone.required && errors.push('Le champ téléphone est obligatoire.')
         return errors
       },
