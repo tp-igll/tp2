@@ -131,14 +131,14 @@
       telephone:{required, maxLength: maxLength(12)},
     },
 
-    data: vm => ({
+    data: () => ({
       name: '',
       email: '',
       prenom:'',
       adresse:'',
       telephone:'',
       date: new Date().toISOString().substr(0, 10),
-      dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
+    
       menu1: false,
     }),
 
