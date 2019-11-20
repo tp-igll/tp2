@@ -3,7 +3,7 @@
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
-      src='/backg.jpg'
+      src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80"
     >
       <v-toolbar-title
         style="width: 300px"
@@ -20,6 +20,7 @@
     </v-app-bar>
 
     <v-navigation-drawer
+    src="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
